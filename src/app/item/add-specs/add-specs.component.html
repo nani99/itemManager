@@ -1,0 +1,26 @@
+<div>
+    <form [formGroup]="specForm">
+    <hr>
+    <h4>Item Specifications</h4>
+        <table formArrayName="specifications">
+            <!--<th colspan="2">Add Specifications:</th>-->
+            <tr *ngFor="let spec of specifications().controls; let i=index" [formGroupName]="i">
+                <td>
+                    Name :
+                    <!--<input type="text" name="specName" formControlName="specName" class="form-control" ngModel #specName="ngModel">-->
+                    <input type="text" name="specName" formControlName="specName">
+                </td>
+                <td>
+                    Value:
+                    <input type="text" name="specValue" formControlName="specValue">
+                </td>
+                <td>
+                    <button (click)="addSpec()" class="btn btn-outline-primary">Add More</button>
+                </td>
+                <td>
+                    <button (click)="removeSpec(i)" class="btn btn-outline-danger">Remove</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
