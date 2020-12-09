@@ -1,7 +1,7 @@
 import {Spec} from './specs.model';
-export interface item{
+export interface Item{
     itemName:string
     itemBrand:string
+    itemDesc:string
     specs:Spec[]
-
 }

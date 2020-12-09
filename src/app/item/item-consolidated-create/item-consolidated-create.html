@@ -1,0 +1,45 @@
+<div>
+    <!--<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">-->
+   <form [formGroup]="itemForm" ngSubmit="onSubmit()">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Item Name</label>
+          <input type="text" class="form-control" formControlName="itemName" placeholder="Item name">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Manufacturer/Brand</label>
+          <input type="text" class="form-control" formControlName="itemBrand" placeholder="Manufacturer">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Item Description</label>
+          <textarea class="form-control" formControlName="itemDesc" rows="3"></textarea>
+        </div>
+        <div>
+            <button type="button" (click)="addSpec()" class="btn btn-primary">Add Specifications</button>
+            <table class="table table-dark" formArrayName="specifications">
+                <!--<th colspan="2">Add Specifications:</th>-->
+                <!--<th width="150px"><button type="button" (click)="addSpec()" class="btn btn-primary">Add Specifications</button></th>-->
+                <tr *ngFor="let spec of specifications().controls; let i=index" [formGroupName]="i">
+                    <td>
+                        Name :
+                        <!--<input type="text" name="specName" formControlName="specName" class="form-control" ngModel #specName="ngModel">-->
+                        <input type="text" name="specName" formControlName="specName" class="form-control">
+                    </td>
+                    <td>
+                        Value:
+                        <!--<input type="text" name="specValue" formControlName="specValue" class="form-control" ngModel #specValue="ngModel" >-->
+                        <input type="text" name="specValue" formControlName="specValue" class="form-control">
+                    </td>
+                    <td>
+                        <button (click)="addSpec()" class="btn btn-outline-primary form-control">Add More</button>
+                    </td>
+                    <td>
+                        <button (click)="removeSpec(i)" class="btn btn-outline-danger form-control">Remove</button>
+                    </td>
+                  </tr>
+            </table>
+            
+        </div>
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()">Save Item</button>
+      </form>
+    </div>
+    

@@ -1,4 +1,4 @@
-//import { Spec } from './item.model';
+import { SpecList } from './itemList.model';
 import {Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -6,27 +6,32 @@ import { Spec } from './specs.model';
 import { Item } from './item.model';
 
 @Injectable({providedIn:'root'})
-export class ItemService{
+export class ItemConsolidatedService{
     private specs:Spec[]=[];
-    private items:Item[]=[];
+    //private items:Item[] = [];
+    item:Item;
     //private specList:SpecList = new SpecList(this.specs); 
     private updateSpecList = new Subject<Spec[]>();
-    item:Item;
     
 
     constructor() {
-        console.log('ItemService Consturctor')
+
     }
 
     getSpecs(){
         return this.specs;
     }
 
-    addItem(itemName:string,itemBrand:string,itemDesc:string){
-        console.log('addItem called. itemName-'+itemName+'-itemBrand-'+itemBrand+'-itemDescription'+itemDesc);
-        this.item.itemName = itemName;
-        this.item.itemBrand = itemBrand;
-        this.item.itemDesc = itemDesc
+    getItems(){
+        return this.item;
+    }
+
+    addItem(itemToAdd:any){
+        console.log('addItem called.');
+        //this.items.push(itemToAdd);
+        this.specs = itemToAdd.specifications
+        this.item =itemToAdd;
+        this.item.specs = this.specs;
     }
 
     addSpec(specList:any){

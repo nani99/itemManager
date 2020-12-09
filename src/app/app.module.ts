@@ -13,7 +13,12 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { ItemCreateComponent } from './item/item-create/item-create.component';
+import { ItemCreateComponent1 } from './item/item-consolidated-create/item-consolidated-create';
 import { AddSpecsComponent } from './item/add-specs/add-specs.component';
+import { ItemService } from './item/item.sevice';
+import { ItemConsolidatedService } from './item/item-consoldated-service';
+import { ItemSavedComponent } from './item/item-save/item-saved.component';
+import { ItemListComponent } from './item/item-list/item-list.component';
 
 const appRoutes : Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +26,10 @@ const appRoutes : Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'users/:id/:name', component: UserComponent },
   { path: 'addItem', component: ItemCreateComponent },
-  { path: 'addSpecs', component: AddSpecsComponent }
+  { path: 'addItems', component: ItemCreateComponent1 },
+  { path: 'addSpecs', component: AddSpecsComponent },
+  { path: 'itemSaved', component: ItemSavedComponent },
+  { path: 'itemList', component: ItemListComponent }
 ]
 
 @NgModule({
@@ -34,7 +42,11 @@ const appRoutes : Routes = [
     EditServerComponent,
     ServerComponent,
     ItemCreateComponent,
-    AddSpecsComponent
+    ItemCreateComponent1,
+    AddSpecsComponent,
+    ItemSavedComponent,
+    ItemListComponent
+    
     
   ],
   imports: [
@@ -43,7 +55,7 @@ const appRoutes : Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ServersService],
+  providers: [ItemService,ItemConsolidatedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

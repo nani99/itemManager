@@ -1,21 +1,22 @@
 <div>
-<form [formGroup]="itemForm" ngSubmit="onSubmit()">
+<!--<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">-->
+  <form #itemForm=ngForm (ngSubmit)="onSubmit(itemForm)">
     <div class="form-group">
       <label for="exampleFormControlInput1">Item Name</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Item name">
+      <input type="text" class="form-control" name="itemName" ngModel placeholder="Item name">
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Manufacturer/Brand</label>
-      <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Manufacturer">
+      <input type="text" class="form-control" name="itemBrand" ngModel  placeholder="Manufacturer">
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Item Description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" name="itemDesc" ngModel rows="3"></textarea>
     </div>
     <!--<div class="form-group">
       <button class="btn btn-primary" (click)="onAddSpecs()">Add Specifications</button>
     </div>-->
     <add-specs></add-specs>
-    <button class="btn btn-primary" (click)="onAddSpecs()">Save Item</button>
+    <button class="btn btn-primary" type="submit">Save Item</button>
   </form>
 </div>

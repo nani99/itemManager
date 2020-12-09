@@ -1,0 +1,34 @@
+<p>item-list works!</p>
+
+
+<div>
+    <!--<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">-->
+   
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Item Name</label>
+          <span class="form-control">{{item.itemName}}</span> 
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Manufacturer/Brand</label>
+          <span class="form-control">{{item.itemBrand}}</span> 
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Item Description</label>
+          <span class="form-control">{{item.itemDesc}}</span> 
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th scope="col" *ngFor="let spec of item.specs" >
+                    {{spec.specName}}</th>
+            </tr>
+            <tr>
+                <th scope="row" *ngFor="let spec of item.specs" >
+                    {{spec.specValue}}</th>
+            </tr>
+            
+        </table>
+      
+    </div>
+    
+
+

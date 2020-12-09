@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Spec } from '../specs.model' 
 
 @Component({
     selector:'add-specs',
@@ -37,9 +38,9 @@ export class AddSpecsComponent{
         this.specifications().removeAt(i);
     }
 
-    onSubmit(){
+     onSubmit(form:NgForm){
         console.log(this.specForm.value);
-        //this.specs = <Spec>this.itemForm.value;
+        this.specs = <Spec>form.value;
         //this.itemService.addSpec(this.specs)
         console.log('printing model in AddSpecsComponent' + this.specs); 
     }

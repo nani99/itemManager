@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup]="specForm">
+    <form #specForm=ngForm (ngSubmit)="onSubmit(specForm)">
     <hr>
     <h4>Item Specifications</h4>
         <table formArrayName="specifications">
