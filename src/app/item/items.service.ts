@@ -1,21 +1,19 @@
 //import { Spec } from './item.model';
 import {Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Spec } from './specs.model';
 import { Item } from './item.model';
 
 @Injectable({providedIn:'root'})
-export class ItemService{
+export class ItemsService{
     private specs:Spec[]=[];
     private items:Item[]=[];
-    //private specList:SpecList = new SpecList(this.specs); 
     private updateSpecList = new Subject<Spec[]>();
     item:Item;
     
 
     constructor() {
-        console.log('ItemService Consturctor')
+        console.log('ItemsService Consturctor')
     }
 
     getSpecs(){
@@ -40,6 +38,7 @@ export class ItemService{
 
     addItemToItems(item:Item){
         this.items.push(item)
+
     }
 
 

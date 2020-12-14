@@ -56,7 +56,9 @@ export class ItemCreateComponent1{
         this.item = <Item>this.itemForm.value
         console.log('printing item model details'+JSON.stringify(this.item));
         this.itemService.addItem(this.item);
-        this.itemService.addSpec(this.specs)
+        this.itemService.addItemToItems(this.item);
+        this.itemService.getItemsList();
+        //this.itemService.addSpec(this.specs)
         console.log('printing model' + this.specs); 
         this.router.navigate(['/itemSaved']);
     }

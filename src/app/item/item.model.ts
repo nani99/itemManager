@@ -3,5 +3,5 @@ export interface Item{
     itemName:string
     itemBrand:string
     itemDesc:string
-    specs:Spec[]
+    //specs:Spec[]
 }

@@ -1,0 +1,37 @@
+<div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Select Item</label>
+          <select [(ngModel)]='selectedItem' (ngModelChange)='onItemSelected($event)'id="selectitem" name="selectitem" class="form-control" [value]="items[0].itemName">
+              <option *ngFor="let item of items" [value]="item.itemName">{{item.itemName}}</option>
+          </select>
+          <hr>
+          </div>
+
+        <div  *ngIf='itemSelected'class="form-group"><label for="exampleFormControlInput1">Item Name</label>
+            <span class="form-control">{{item.itemName}}</span> 
+          
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Manufacturer/Brand</label>
+            <span class="form-control">{{item.itemBrand}}</span> 
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Item Description</label>
+            <span class="form-control">{{item.itemDesc}}</span> 
+          </div>
+          <label>Specifications</label>
+          <table class="table table-bordered">
+              <tr>
+                  <th scope="col" *ngFor="let spec of item.specifications" >
+                      {{spec.specName}}</th>
+              </tr>
+              <tr>
+                  <th scope="row" *ngFor="let spec of item.specifications" >
+                      {{spec.specValue}}</th>
+              </tr>
+              
+          </table>
+        </div>
+</div>                
+
+
+

@@ -19,6 +19,7 @@ import { ItemService } from './item/item.sevice';
 import { ItemConsolidatedService } from './item/item-consoldated-service';
 import { ItemSavedComponent } from './item/item-save/item-saved.component';
 import { ItemListComponent } from './item/item-list/item-list.component';
+import {SelectItemComponent} from './item/select-item/select-item.component';
 
 const appRoutes : Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +30,8 @@ const appRoutes : Routes = [
   { path: 'addItems', component: ItemCreateComponent1 },
   { path: 'addSpecs', component: AddSpecsComponent },
   { path: 'itemSaved', component: ItemSavedComponent },
-  { path: 'itemList', component: ItemListComponent }
+  { path: 'itemList', component: ItemListComponent },
+  { path: 'selectItem', component: SelectItemComponent }
 ]
 
 @NgModule({
@@ -45,7 +47,8 @@ const appRoutes : Routes = [
     ItemCreateComponent1,
     AddSpecsComponent,
     ItemSavedComponent,
-    ItemListComponent
+    ItemListComponent,
+    SelectItemComponent
     
     
   ],

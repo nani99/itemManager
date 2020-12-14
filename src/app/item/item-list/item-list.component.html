@@ -16,13 +16,14 @@
           <label for="exampleFormControlTextarea1">Item Description</label>
           <span class="form-control">{{item.itemDesc}}</span> 
         </div>
+        <p>Specifications</p>
         <table class="table table-bordered">
             <tr>
-                <th scope="col" *ngFor="let spec of item.specs" >
+                <th scope="col"  *ngFor="let spec of item.specifications" bg-primary>
                     {{spec.specName}}</th>
             </tr>
             <tr>
-                <th scope="row" *ngFor="let spec of item.specs" >
+                <th scope="row" *ngFor="let spec of item.specifications">
                     {{spec.specValue}}</th>
             </tr>
             
